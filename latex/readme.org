@@ -129,6 +129,8 @@ Definicija novih okolj za matematiko:
     - opciji še =show only notes= in =show notes on second screen=right=
 - =\usetheme{ime}=
 - =\usecolortheme{ime}=
+- =\usefonttheme{ime}=
+- =\setbeamertemplate{footline}[frame number]= za številčenje strani?
 - okolje =columns= z neobveznim parametrom =t=, =c= ali =b= za vertikalno poravnavo
   - okolje =column= z obveznim parametrom =x\textwidth=
 - za skrivanje tabele po vrsticah je =pause=, za skrivanje po stolpcih pa =\onslide= (glej [[https://tex.stackexchange.com/questions/274920/how-to-uncover-a-table-column-wise-in-latex-beamer][tole]])
