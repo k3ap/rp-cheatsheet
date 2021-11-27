@@ -5,6 +5,7 @@
 - [[https://www.overleaf.com/learn][Overleaf]]
 - [[https://detexify.kirelabs.org/classify.html][Detexify]]
 - [[https://www.overleaf.com/learn/latex/Theorems_and_proofs][Theorems and proofs (overleaf)]]
+- [[https://www.tablesgenerator.com/][Tablegen]]
 
 * Členjenje
 
