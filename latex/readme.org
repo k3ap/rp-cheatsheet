@@ -1,0 +1,127 @@
+#+TITLE: Latex Cheatsheet
+
+* Povezave
+
+- [[https://www.overleaf.com/learn][Overleaf]]
+- [[https://detexify.kirelabs.org/classify.html][Detexify]]
+
+* Členjenje
+
+- =section=, =subsection=, =subsubsection=, =paragraph=
+- =chapter=
+- =itemize= in =enumerate= za sezname
+- =verbatim= ali =verb= za plain-text
+
+* Besedilo in slike
+
+- =\emph= za poudarek
+- =\texttt{}= za monospaced font
+- =\includegraphics{}= argumenti:
+  - =height=, =width=, =keepaspectratio=, =scale=
+- Sklici: =\ref=, =\eqref= ali =\pageref=
+- Citiranje: =\cite=
+    
+Tabele:
+#+BEGIN_SRC latex
+\begin{table}[h!]
+    \centering
+    \caption{}
+    \label{}
+    \begin{tabular}{|c|c|l|r|}
+        \hline
+        A & B & 1 & 2\\
+        \multicolumn{2}{c}{Žnj} & 3 & 4\\
+    \end{tabular}
+\end{table}
+#+END_SRC
+
+Za poravnavo na decimalni vejici:
+#+BEGIN_SRC latex
+\usepackage{siunitx}
+\sisetup{output-decimal-marker={,},group-separator={.}}
+
+% v tabeli potem nucaš S namesto r/c/l
+#+END_SRC
+
+Bibtex entry:
+#+BEGIN_SRC bibtex
+@article{escardo04,
+    author = {Martín Escardó},
+    title = {Synthetic topology of data types and classical spaces},
+    journal = {Electronic Notes in Theoretical Computer Science},
+    year = 2004,
+    volume = 87,
+    pages = {21--156}
+}
+
+% 'and' je ločilo v seznamu avtorjev
+#+END_SRC
+
+Biblatex configuracija:
+#+BEGIN_SRC latex
+\bibliographystyle{plain}
+\bibliography{ime_datoteke}
+#+END_SRC
+
+* Meta
+
+- =\newcommand{ukaz}[argc]{definicija}=
+  - argumente nucaš z =#N=
+ 
+* Posebni znaki
+
+- =\textbackslash{}=
+- =\%=
+- =-= , =--= , =-{}-=
+- narekovaji: ="'pravilno"`= ali =">delno pravilno"<=
+- preslediki
+  - =\(presledek)= je navadno dolg presledek
+  - =~= je nbs
+  - =\,= je daljši
+- =\-= določa prelomne točke
+- =\\= ali =\newline=
+
+* Matematika
+
+- =\textstyle= oz. =\displaystyle=
+- =\|= in =\|= za normo
+- =\left(= in =\right)= je pravilno
+- =\left.= za nevidne oklepaje
+- okolje =gather= za skupek enačb; ločene z =\\=
+- poravnava enačb: =multiline= ali =align=
+  - pri =align= bo alignu na znak(e) =&=
+- okolje =cases= za absolutno vrednost
+  - ločiš vrednosti od pogoja z =&=
+
+
+Definicija novih okolj za matematiko:
+#+BEGIN_SRC latex
+{
+\theoremstyle{theorem}
+\newtheorem{izrek}{Izrek}[section]
+\newtheorem{posledica}[izrek]{Posledica}
+}
+
+{
+\theoremstyle{definition}
+\newtheorem{definicija}[izrek]{Definicija}
+\newtheorem{vaja}[izrek]{Vaja}
+}
+#+END_SRC
+
+* Beamer
+
+- poglavja in razdelki z običajnima =\section= in =\subsection=
+- okolje =frame= za prosojnice
+- =block=, =exampleblock=, =alertblock=
+- za skrivanje elementov seznama daš =\item<n?-m?>=
+  - ali =\item<n>=
+- za skrivanje delov prosojnice je =\pause=
+- poudarek: =\alert=
+- zapiski: =\note[item]{vsebina}=
+  - =\usepackage{pdfpages}= in =\setbeameroption{hide notes}=
+    - opciji še =show only notes= in =show notes on second screen=right=
+- =\usetheme{ime}=
+- =\usecolortheme{ime}=
+- okolje =columns= z neobveznim parametrom =t=, =c= ali =b= za vertikalno poravnavo
+  - okolje =column= z obveznim parametrom =x\textwidth=
