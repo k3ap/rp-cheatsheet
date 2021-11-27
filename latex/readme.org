@@ -4,12 +4,14 @@
 
 - [[https://www.overleaf.com/learn][Overleaf]]
 - [[https://detexify.kirelabs.org/classify.html][Detexify]]
+- [[https://www.overleaf.com/learn/latex/Theorems_and_proofs][Theorems and proofs (overleaf)]]
 
 * Členjenje
 
 - =section=, =subsection=, =subsubsection=, =paragraph=
 - =chapter=
 - =itemize= in =enumerate= za sezname
+  - s paketom =enumitem= dobiš opcijo =\begin{enumerate}[resume]=
 - =verbatim= ali =verb= za plain-text
 
 * Besedilo in slike
@@ -20,6 +22,8 @@
   - =height=, =width=, =keepaspectratio=, =scale=
 - Sklici: =\ref=, =\eqref= ali =\pageref=
 - Citiranje: =\cite=
+- Url: =\url=, =\usepackage{url}=
+- dolžini =\belowcaptionskip= in =\parindent=
     
 Tabele:
 #+BEGIN_SRC latex
@@ -67,13 +71,14 @@ Biblatex configuracija:
 
 - =\newcommand{ukaz}[argc]{definicija}=
   - argumente nucaš z =#N=
+- =\newanvironment{ime}{prej}{po}=
  
 * Posebni znaki
 
 - =\textbackslash{}=
 - =\%=
 - =-= , =--= , =-{}-=
-- narekovaji: ="'pravilno"`= ali =">delno pravilno"<=
+- narekovaji: ="`pravilno"'= ali =">delno pravilno"<=
 - preslediki
   - =\(presledek)= je navadno dolg presledek
   - =~= je nbs
@@ -125,3 +130,5 @@ Definicija novih okolj za matematiko:
 - =\usecolortheme{ime}=
 - okolje =columns= z neobveznim parametrom =t=, =c= ali =b= za vertikalno poravnavo
   - okolje =column= z obveznim parametrom =x\textwidth=
+- za skrivanje tabele po vrsticah je =pause=, za skrivanje po stolpcih pa =\onslide= (glej [[https://tex.stackexchange.com/questions/274920/how-to-uncover-a-table-column-wise-in-latex-beamer][tole]])
+- =\beamertemplatenavigationsymbolsempty=
