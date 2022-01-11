@@ -1,0 +1,79 @@
+* Analiza
+- =Factor(izraz)= razcepi izraz na linearne in kvadratne faktorje
+  - Če želiš samo linearne, dodaš še =GaussianIntegers->True=; ne vem pa, če bo to vedno delalo
+  - Če delaš s trigonometričnimi izrazi, daj =Trig->True=
+- =Expand[p]= razvije polinom =p=
+- =Collect[p, x]= zbere koeficiente razvitega polinoma =p= po =x=
+- =Exponent[p, x]= najde stopnjo polinoma =p= glede na =x=
+- =Conjugate[z]= da konjugirano kompleksno število
+- =Sum[izraz(k), {k, min, max, step}]= (min ter step lahko izpustiš)
+- =Limit[f[x], x->a]= je limita =f[x]=, ko gre =x= proti =a=
+- =Limit[..., Direction->1]= je leva limita, =Direction->-1= pa desna
+- =D[f[x], x]= je prvi odvod
+- =D[f[x], {x,n}]= je =n=-ti odvod
+- =Integrate[f[x], {x, min, max}]=
+  
+Določanje inverzne funkcije:
+#+BEGIN_SRC mathematica
+f[x_] := ...;
+g[x_] := InverseFunction[f][x]
+#+END_SRC
+
+* Algebra
+- =Dot[a,b]= je skalarni produkt
+- =Cross[a,b]= je vektorski produkt
+- =MatrixForm[matrika]= prikaže nested seznam kot matriko
+  - ne pozabit, da lahko narediš =... // MatrixForm=
+- =Det[M]= je determinanta matrike
+
+* Števila
+- =GCD=, =LCM=
+- =Quotient[n,m]= je celoštevilsko deljenje =n= z =m=
+- =Mod[n,m]= je ostanek pri deljanju =n= z =m=
+- =IntegerDigits[n]= da seznam števk števila =n= od leve proti desni
+- =FactorInteger[n]= da praštevilski razcep
+- =Divisors[n]= da seznam vseh deliteljev =n=
+- =Prime[n]= da =n=-to praštevilo
+- =Binomial[n,k]=
+
+* Misc funkcije
+- =N[stevilka, m]= izpiše številko na =m= decimalnih? mest
+- =Simplify[izraz]= poenostavi izraz
+- =Degree= je kar =Pi/180=
+- =Table[izraz(i), {i, min, max, step}]=
+- =Solve[enacba(a,b,...) && enacba(a,b,...) && ..., {a,b,...}, domena]=
+  - =domena= je =Integers=, =PositiveIntegers=, =Reals=, ipd.
+  - =Assumptions -> {...}=
+- =NSolve[enacba(x), x]= je numerično reševanje enačbe
+- =Reduce[a(x) > b(x) && c(x) < d(x) && ..., x, Reals]= reši sistem enačb
+- =Roots[enacba(x), x]= vrne disjunkcijo rešitev enačbe
+- =FindRoot[a[t] == a[s], {{t, 0}, {s, 1}}]= numerično išče rešitev enačbe
+- =Map[f, list]= požene =f= čez =list=
+- =Select[list, q]= izbere tiste elemente =list=, ki ustrezajo =q=
+- =Length[seznam]= je dolžina seznama
+- =MaximalBy[seznam, kriterij]= vrne seznam vseh =x= v seznamu, za katere je =kriterij[x]= maksimalen
+- =Apply[operator, seznam]= združi seznam po operatorju
+- =Flatten[seznam, stopnja]=
+
+* Risanje
+- =Plot[f[x], {x, -5, 5}]=
+  - =PlotRange -> {min, max}=
+    - mogoče =All=, če združuješ več grafov na čuden način
+  - =AspectRatio -> 1=
+  - =Filling->Axis= pobarva predel med grafom in absciso
+- =ParametricPlot[{x[t], y[t]}, {t, 0, 5}]=
+- =Graphics[Red, Point[{x,y}], ...]= prikaže, kar želimo narisati
+- =Show[g1, g2, g3, ...]= združi več grafičnih objektov na en graf
+  - grafični objekt je =Plot= ali =Graphics=
+- =Manipulate[izraz(a,b,...), {a, amin, amax}, {b, bmin, bmax}, ...]=
+- =ContourPlot[enacba(x,y), {x, xmin, xmax}, {y, ymin, ymax}]= nariše graf implicitno podane krivulje
+- =Grid[{{1, 2, 3}, {4, 5, 6}}, Frame->All]= nariše tabelo
+
+Barvanje območja med dvema grafoma:
+#+BEGIN_SRC mathematica
+Plot[
+  {f[x], g[x]}, 
+  {x, -5, 5},
+  Filling -> {1 -> {{2}, {None, LightBlue}}}
+]
+#+END_SRC
